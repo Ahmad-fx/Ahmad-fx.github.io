@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ahmad FX</title>
+<title>Ahmad FX | سایت رسمی آموزش ترید</title>
 <style>
   body {
     margin: 0; padding: 0;
     font-family: 'Tahoma', sans-serif;
-    background-color: #0d0d0d; /* مشکی خیلی تیره */
-    color: #ccc; /* خاکستری روشن */
+    background-color: #0d0d0d;
+    color: #ccc;
     direction: rtl;
   }
   header {
-    background-color: #1a1a1a; /* خاکستری خیلی تیره */
+    background-color: #121212;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #1e90ff;
   }
   nav a {
     color: #ccc;
@@ -27,16 +28,20 @@
     transition: color 0.3s;
   }
   nav a:hover {
-    color: #888; /* خاکستری متوسط */
+    color: #1e90ff;
   }
   .lang-switcher {
     cursor: pointer;
-    background: #555; /* خاکستری متوسط */
+    background: #1e90ff;
     border: none;
-    color: #eee;
+    color: #0d0d0d;
     font-weight: bold;
     padding: 8px 15px;
     border-radius: 4px;
+    transition: background 0.3s;
+  }
+  .lang-switcher:hover {
+    background: #5599ff;
   }
   main {
     padding: 30px;
@@ -47,16 +52,16 @@
     margin-bottom: 50px;
   }
   h1, h2, h3 {
-    color: #bbb; /* خاکستری روشن‌تر */
+    color: #1e90ff;
   }
   a.contact-link {
-    color: #999; /* خاکستری متوسط */
+    color: #5599ff;
     text-decoration: none;
     font-weight: bold;
   }
   a.contact-link:hover {
-    color: #666; /* خاکستری تیره */
     text-decoration: underline;
+    color: #1e90ff;
   }
   @media (max-width: 600px) {
     header {
@@ -84,48 +89,53 @@
 <main>
   <section id="home" class="lang-fa">
     <h1>به سایت رسمی من خوش آمدید</h1>
+    <p>سلام! اینجا محلی است که می‌توانید دانش حرفه‌ای معامله‌گری را بیاموزید و به موفقیت مالی دست پیدا کنید.  
+    من احمد هستم، مدرس و تحلیل‌گر بازارهای مالی با تجربه چند ساله در فارکس و کریپتوکارنسی.</p>
   </section>
 
   <section id="about" class="lang-fa" style="display:none;">
     <h2>درباره من</h2>
-    <p>سلام! من احمد هستم، تحلیل‌گر و مدرس بازارهای مالی با تمرکز روی فارکس و ارزهای دیجیتال.<br />
-       سال‌ها تجربه در معامله‌گری و آموزش دارم و هدفم اینه که دانش و تجربه‌ام رو به صورت ساده و کاربردی با شما به اشتراک بذارم.</p>
+    <p>من احمد خسروی هستم، تحلیل‌گر بازارهای مالی و مدرس ترید با سابقه بیش از ۵ سال آموزش و معامله‌گری در بازارهای جهانی.  
+    هدف من آموزش کاربردی و موثر برای همه علاقه‌مندان است تا بتوانند با اطمینان و دانش وارد بازار شوند.</p>
   </section>
 
   <section id="trade" class="lang-fa" style="display:none;">
     <h2>تدریس ترید</h2>
-    <p>دوره ترید من به شما کمک می‌کند تا با روش‌های اصولی معامله‌گری آشنا شوید.<br />
-       برای اطلاعات بیشتر و ثبت‌نام با تلگرام زیر تماس بگیرید:<br />
-       <a href="https://t.me/a_khesrawi" class="contact-link" target="_blank">t.me/a_khesrawi</a></p>
+    <p>دوره‌های ترید من شامل آموزش مفاهیم پایه، استراتژی‌های معاملاتی، مدیریت ریسک و روانشناسی معامله‌گر است.  
+    اگر به دنبال آموزش واقعی و کاربردی هستید، همین حالا با من تماس بگیرید:</p>
+    <p><a href="https://t.me/a_khesrawi" target="_blank" class="contact-link">t.me/a_khesrawi</a></p>
   </section>
 
   <section id="contact" class="lang-fa" style="display:none;">
     <h2>تماس با من</h2>
     <p>ایمیل: <a href="mailto:ahmadkhesrawi52@gmail.com" class="contact-link">ahmadkhesrawi52@gmail.com</a></p>
-    <p>تلگرام: <a href="https://t.me/a_khesrawi" class="contact-link" target="_blank">t.me/a_khesrawi</a></p>
+    <p>تلگرام: <a href="https://t.me/a_khesrawi" target="_blank" class="contact-link">t.me/a_khesrawi</a></p>
   </section>
 
+  <!-- English Version -->
   <section id="home-en" class="lang-en" style="display:none;">
     <h1>Welcome to My Official Website</h1>
+    <p>Hello! This is the place to learn professional trading skills and achieve financial success.  
+    I'm Ahmad, a market analyst and trading instructor with years of experience in Forex and cryptocurrency.</p>
   </section>
 
   <section id="about-en" class="lang-en" style="display:none;">
     <h2>About Me</h2>
-    <p>Hello! I'm Ahmad, a financial analyst and instructor focused on Forex and cryptocurrencies.<br />
-       I have years of experience in trading and teaching, and my goal is to share my knowledge and expertise with you in a simple and practical way.</p>
+    <p>I'm Ahmad Khesrawi, a financial market analyst and trading instructor with over 5 years of experience in global markets.  
+    My goal is to provide practical and effective education so everyone can trade confidently.</p>
   </section>
 
   <section id="trade-en" class="lang-en" style="display:none;">
     <h2>Trading Instruction</h2>
-    <p>My trading course helps you get familiar with professional trading methods.<br />
-       For more information and registration, contact me on Telegram:<br />
-       <a href="https://t.me/a_khesrawi" class="contact-link" target="_blank">t.me/a_khesrawi</a></p>
+    <p>My trading courses cover fundamentals, strategies, risk management, and trader psychology.  
+    If you seek real, practical education, contact me now:</p>
+    <p><a href="https://t.me/a_khesrawi" target="_blank" class="contact-link">t.me/a_khesrawi</a></p>
   </section>
 
   <section id="contact-en" class="lang-en" style="display:none;">
     <h2>Contact Me</h2>
     <p>Email: <a href="mailto:ahmadkhesrawi52@gmail.com" class="contact-link">ahmadkhesrawi52@gmail.com</a></p>
-    <p>Telegram: <a href="https://t.me/a_khesrawi" class="contact-link" target="_blank">t.me/a_khesrawi</a></p>
+    <p>Telegram: <a href="https://t.me/a_khesrawi" target="_blank" class="contact-link">t.me/a_khesrawi</a></p>
   </section>
 </main>
 
