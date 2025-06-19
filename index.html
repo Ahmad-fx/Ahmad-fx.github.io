@@ -3,92 +3,124 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ahmad FX - خانه</title>
+<title>Ahmad FX</title>
 <style>
   /* Reset */
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
+    background: #0b1523;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0a0f21;
-    color: #c8d6e5;
+    color: #cbd5e1;
     direction: rtl;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  a {
-    color: #4fd1c5;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
   }
   header {
-    background: #0f172a;
-    padding: 15px 30px;
+    background: #112240;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+    padding: 15px 30px;
+    box-shadow: 0 0 15px #0ef;
+    position: sticky;
+    top: 0;
+    z-index: 999;
   }
   .logo {
-    font-weight: 700;
     font-size: 1.8rem;
-    color: #4fd1c5;
-  }
-  nav a {
-    margin: 0 15px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-  }
-  nav a:hover {
-    color: #63e6be;
-  }
-  .lang-switch {
-    background: #4fd1c5;
-    color: #0f172a;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
     font-weight: 700;
+    color: #0ef;
+    letter-spacing: 2px;
     cursor: pointer;
   }
+  nav a {
+    color: #a3bffa;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+  }
+  nav a:hover,
+  nav a.active {
+    color: #50e3c2;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #50e3c2;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a.active::after {
+    width: 100%;
+  }
+  .lang-toggle {
+    background: transparent;
+    border: 2px solid #0ef;
+    color: #0ef;
+    border-radius: 6px;
+    padding: 7px 16px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background 0.3s, color 0.3s;
+  }
+  .lang-toggle:hover {
+    background: #0ef;
+    color: #112240;
+  }
   main {
-    flex-grow: 1;
-    padding: 60px 30px;
-    max-width: 1000px;
-    margin: auto;
+    max-width: 1100px;
+    margin: 80px auto 50px;
+    padding: 0 20px;
   }
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #4fd1c5;
-  }
-  p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #c8d6e5;
-  }
-  footer {
+  .hero {
     text-align: center;
-    padding: 20px 10px;
-    font-size: 0.9rem;
-    color: #6b7280;
-    background: #0f172a;
+    margin-bottom: 50px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    color: #50e3c2;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    color: #a3bffa;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
   }
   /* Responsive */
   @media (max-width: 768px) {
     header {
       flex-direction: column;
-      gap: 15px;
+      padding: 15px 20px;
+      gap: 10px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     nav a {
-      margin: 0 10px;
-      font-size: 0.9rem;
+      margin: 10px 15px;
+      font-size: 1rem;
     }
     main {
-      padding: 40px 20px;
+      margin-top: 60px;
+      padding: 0 10px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 100%;
     }
   }
 </style>
@@ -98,30 +130,32 @@
 <header>
   <div class="logo">Ahmad FX</div>
   <nav>
-    <a href="#" data-section="home">خانه</a>
+    <a href="#" class="active" data-section="home">خانه</a>
     <a href="#" data-section="about">درباره من</a>
     <a href="#" data-section="trade">تدریس ترید</a>
     <a href="#" data-section="contact">تماس با من</a>
   </nav>
-  <button class="lang-switch" id="langToggle">EN</button>
+  <button class="lang-toggle" id="langToggle">EN</button>
 </header>
 
 <main>
   <section id="home" lang="fa" style="display:block;">
-    <h1>به سایت رسمی من خوش آمدید</h1>
-    <p>سلام! من احمد هستم، تحلیل‌گر بازارهای مالی با سال‌ها تجربه در فارکس و ارزهای دیجیتال.  
-    هدف من آموزش ساده، کاربردی و عملی ترید است تا شما هم بتوانید به موفقیت برسید.</p>
+    <div class="hero">
+      <h1>به سایت رسمی Ahmad FX خوش آمدید</h1>
+      <p>سلام! من احمد هستم، تحلیل‌گر بازارهای مالی با سال‌ها تجربه در فارکس و ارزهای دیجیتال.  
+      هدف من آموزش عملی و کاربردی ترید است تا شما هم بتوانید به موفقیت برسید.</p>
+    </div>
   </section>
   <section id="about" lang="fa" style="display:none;">
     <h1>درباره من</h1>
-    <p>من احمد خسروی، معامله‌گر و مدرس بازارهای مالی با بیش از ۷ سال تجربه در تحلیل تکنیکال و فاندامنتال.  
-    تمرکز من روی آموزش استراتژی‌های کارآمد برای کسب سود مستمر است.  
-    معتقدم آموزش باید ساده، واضح و قابل اجرا باشد.</p>
+    <p>من احمد خسروی، معامله‌گر و مدرس بازارهای مالی با بیش از ۷ سال تجربه.  
+    تخصص من آموزش استراتژی‌های موثر برای کسب سود مستمر است.  
+    باور دارم آموزش باید ساده، واضح و قابل اجرا باشد.</p>
   </section>
   <section id="trade" lang="fa" style="display:none;">
     <h1>تدریس ترید</h1>
-    <p>دوره‌های من شامل آموزش مدیریت ریسک، روانشناسی بازار و استراتژی‌های حرفه‌ای برای معامله‌گری در بازارهای جهانی است.  
-    برای اطلاعات بیشتر و ثبت‌نام، با تلگرام زیر تماس بگیرید:</p>
+    <p>دوره‌های آموزشی من شامل مدیریت ریسک، روانشناسی بازار و استراتژی‌های حرفه‌ای برای معامله‌گری است.  
+    برای اطلاعات و ثبت‌نام با تلگرام زیر تماس بگیرید:</p>
     <p><a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
   </section>
   <section id="contact" lang="fa" style="display:none;">
@@ -132,19 +166,21 @@
 
   <!-- English Sections -->
   <section id="home-en" lang="en" style="display:none;">
-    <h1>Welcome to My Official Website</h1>
-    <p>Hello! I'm Ahmad, a financial market analyst with years of experience in Forex and cryptocurrencies.  
-    My goal is to provide simple, practical, and effective trading education so you can succeed.</p>
+    <div class="hero">
+      <h1>Welcome to Ahmad FX Official Website</h1>
+      <p>Hello! I'm Ahmad, a financial market analyst with years of experience in Forex and cryptocurrencies.  
+      My goal is to provide practical and effective trading education so you can succeed.</p>
+    </div>
   </section>
   <section id="about-en" lang="en" style="display:none;">
     <h1>About Me</h1>
-    <p>I'm Ahmad Khesrawi, a trader and financial market instructor with over 7 years of experience in technical and fundamental analysis.  
-    My focus is teaching effective strategies for consistent profits.  
+    <p>I'm Ahmad Khesrawi, a trader and market instructor with over 7 years of experience.  
+    I specialize in teaching effective strategies for consistent profits.  
     I believe education should be simple, clear, and actionable.</p>
   </section>
   <section id="trade-en" lang="en" style="display:none;">
     <h1>Trading Instruction</h1>
-    <p>My courses cover risk management, market psychology, and professional trading strategies for global markets.  
+    <p>My courses cover risk management, market psychology, and professional trading strategies.  
     For more info and registration, contact me on Telegram:</p>
     <p><a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
   </section>
@@ -172,6 +208,8 @@
   navLinks.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
+      navLinks.forEach(l => l.classList.remove('active'));
+      e.target.classList.add('active');
       showSection(e.target.getAttribute('data-section'));
     });
   });
@@ -180,6 +218,8 @@
     lang = (lang === 'fa') ? 'en' : 'fa';
     langToggle.textContent = (lang === 'fa') ? 'EN' : 'FA';
     showSection('home');
+    navLinks.forEach(l => l.classList.remove('active'));
+    navLinks[0].classList.add('active');
   });
 </script>
 
