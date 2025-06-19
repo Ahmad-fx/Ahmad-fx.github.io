@@ -1,227 +1,150 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html><html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ahmad FX</title>
-<style>
-  /* Reset */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: #0b1523;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #cbd5e1;
-    direction: rtl;
-  }
-  header {
-    background: #112240;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    box-shadow: 0 0 15px #0ef;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-  .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #0ef;
-    letter-spacing: 2px;
-    cursor: pointer;
-  }
-  nav a {
-    color: #a3bffa;
-    text-decoration: none;
-    margin: 0 20px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    position: relative;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-  }
-  nav a:hover,
-  nav a.active {
-    color: #50e3c2;
-  }
-  nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    background: #50e3c2;
-    bottom: 0;
-    left: 0;
-    transition: width 0.3s ease;
-  }
-  nav a:hover::after,
-  nav a.active::after {
-    width: 100%;
-  }
-  .lang-toggle {
-    background: transparent;
-    border: 2px solid #0ef;
-    color: #0ef;
-    border-radius: 6px;
-    padding: 7px 16px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1rem;
-    transition: background 0.3s, color 0.3s;
-  }
-  .lang-toggle:hover {
-    background: #0ef;
-    color: #112240;
-  }
-  main {
-    max-width: 1100px;
-    margin: 80px auto 50px;
-    padding: 0 20px;
-  }
-  .hero {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  .hero h1 {
-    font-size: 3rem;
-    color: #50e3c2;
-    margin-bottom: 20px;
-  }
-  .hero p {
-    font-size: 1.3rem;
-    color: #a3bffa;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-  /* Responsive */
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      padding: 15px 20px;
-      gap: 10px;
-    }
-    nav {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ahmad FX - سایت رسمی آموزش ترید</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0b1523;
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+      color: #cbd5e1;
+      direction: rtl;
+      min-height: 100vh;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
     }
+    a { color: #4fd1c5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      background: #112240;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 0 15px #0ef;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo { font-size: 1.8rem; font-weight: 700; color: #0ef; letter-spacing: 2px; cursor: pointer; }
     nav a {
-      margin: 10px 15px;
+      color: #a3bffa;
+      margin: 0 20px;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active { color: #50e3c2; }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0; height: 3px;
+      background: #50e3c2;
+      bottom: -2px; left: 0;
+      transition: width 0.3s;
+    }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    .lang-toggle {
+      background: transparent;
+      border: 2px solid #0ef;
+      color: #0ef;
+      padding: 7px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    main { flex-grow: 1; padding: 80px 20px 40px; max-width: 1100px; margin: auto; }
+    section { margin-bottom: 80px; }
+    .hero h1 { font-size: 3rem; color: #50e3c2; margin-bottom: 20px; }
+    .hero p { font-size: 1.3rem; color: #a3bffa; line-height: 1.6; max-width: 700px; margin: auto; }
+    /* Portfolio Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+    /* Contact Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 12px;
+      border: 2px solid #50e3c2;
+      border-radius: 6px;
+      background: #112240;
+      color: #cbd5e1;
       font-size: 1rem;
     }
-    main {
-      margin-top: 60px;
-      padding: 0 10px;
+    .contact-form button {
+      align-self: flex-start;
+      padding: 10px 20px;
+      background: #50e3c2;
+      border: none;
+      border-radius: 6px;
+      color: #112240;
+      cursor: pointer;
+      font-weight: 700;
     }
-    .hero h1 {
-      font-size: 2.2rem;
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #112240;
+      color: #6b7280;
+      font-size: 0.9rem;
     }
-    .hero p {
-      font-size: 1rem;
-      max-width: 100%;
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 10px; }
+      nav a { margin: 10px; }
+      main { padding: 60px 15px; }
+      .hero h1 { font-size: 2.2rem; }
     }
-  }
-</style>
+  </style>
 </head>
 <body>
-
 <header>
   <div class="logo">Ahmad FX</div>
   <nav>
-    <a href="#" class="active" data-section="home">خانه</a>
-    <a href="#" data-section="about">درباره من</a>
-    <a href="#" data-section="trade">تدریس ترید</a>
-    <a href="#" data-section="contact">تماس با من</a>
+    <a href="#home" class="active" data-section="home">خانه</a>
+    <a href="#about" data-section="about">درباره من</a>
+    <a href="#portfolio" data-section="portfolio">نمونه کارها</a>
+    <a href="#blog" data-section="blog">وبلاگ</a>
+    <a href="#trade" data-section="trade">تدریس ترید</a>
+    <a href="#contact" data-section="contact">تماس با من</a>
   </nav>
   <button class="lang-toggle" id="langToggle">EN</button>
 </header>
-
 <main>
-  <section id="home" lang="fa" style="display:block;">
-    <div class="hero">
-      <h1>به سایت رسمی Ahmad FX خوش آمدید</h1>
-      <p>سلام! من احمد هستم، تحلیل‌گر بازارهای مالی با سال‌ها تجربه در فارکس و ارزهای دیجیتال.  
-      هدف من آموزش عملی و کاربردی ترید است تا شما هم بتوانید به موفقیت برسید.</p>
-    </div>
+  <section id="home" lang="fa" style="display:block;" class="hero">
+    <h1>به وب‌سایت رسمی Ahmad FX خوش آمدید</h1>
+    <p>آموزش معامله‌گری حرفه‌ای فارکس، تحلیل تکنیکال و مدیریت ریسک برای دستیابی به سود مستمر.</p>
   </section>
   <section id="about" lang="fa" style="display:none;">
     <h1>درباره من</h1>
-    <p>من احمد خسروی، معامله‌گر و مدرس بازارهای مالی با بیش از ۷ سال تجربه.  
-    تخصص من آموزش استراتژی‌های موثر برای کسب سود مستمر است.  
-    باور دارم آموزش باید ساده، واضح و قابل اجرا باشد.</p>
+    <p>من احمد خسروی، معامله‌گر و مدرس بازارهای مالی با بیش از ۷ سال تجربه. تمرکز من بر آموزش استراتژی‌های کاربردی استراتژیک در فارکس و ارزهای دیجیتال برای رسیدن به رشد پایدار سرمایه.</p>
   </section>
-  <section id="trade" lang="fa" style="display:none;">
-    <h1>تدریس ترید</h1>
-    <p>دوره‌های آموزشی من شامل مدیریت ریسک، روانشناسی بازار و استراتژی‌های حرفه‌ای برای معامله‌گری است.  
-    برای اطلاعات و ثبت‌نام با تلگرام زیر تماس بگیرید:</p>
-    <p><a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
-  </section>
-  <section id="contact" lang="fa" style="display:none;">
-    <h1>تماس با من</h1>
-    <p>ایمیل: <a href="mailto:ahmadkhesrawi52@gmail.com">ahmadkhesrawi52@gmail.com</a></p>
-    <p>تلگرام: <a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
-  </section>
-
-  <!-- English Sections -->
-  <section id="home-en" lang="en" style="display:none;">
-    <div class="hero">
-      <h1>Welcome to Ahmad FX Official Website</h1>
-      <p>Hello! I'm Ahmad, a financial market analyst with years of experience in Forex and cryptocurrencies.  
-      My goal is to provide practical and effective trading education so you can succeed.</p>
+  <section id="portfolio" lang="fa" style="display:none;">
+    <h1>نمونه کارها</h1>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/400x250?text=Project+1" alt="Project 1">
+      <img src="https://via.placeholder.com/400x250?text=Project+2" alt="Project 2">
+      <img src="https://via.placeholder.com/400x250?text=Project+3" alt="Project 3">
+      <img src="https://via.placeholder.com/400x250?text=Project+4" alt="Project 4">
     </div>
   </section>
-  <section id="about-en" lang="en" style="display:none;">
-    <h1>About Me</h1>
-    <p>I'm Ahmad Khesrawi, a trader and market instructor with over 7 years of experience.  
-    I specialize in teaching effective strategies for consistent profits.  
-    I believe education should be simple, clear, and actionable.</p>
-  </section>
-  <section id="trade-en" lang="en" style="display:none;">
-    <h1>Trading Instruction</h1>
-    <p>My courses cover risk management, market psychology, and professional trading strategies.  
-    For more info and registration, contact me on Telegram:</p>
-    <p><a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
-  </section>
-  <section id="contact-en" lang="en" style="display:none;">
-    <h1>Contact Me</h1>
-    <p>Email: <a href="mailto:ahmadkhesrawi52@gmail.com">ahmadkhesrawi52@gmail.com</a></p>
-    <p>Telegram: <a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
-  </section>
-</main>
-
-<script>
-  const navLinks = document.querySelectorAll('nav a');
-  const langToggle = document.getElementById('langToggle');
-  let lang = 'fa';
-
-  function showSection(id) {
-    document.querySelectorAll('main section').forEach(s => s.style.display = 'none');
-    if(lang === 'fa') {
-      document.getElementById(id).style.display = 'block';
-    } else {
-      document.getElementById(id + '-en').style.display = 'block';
-    }
-  }
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      navLinks.forEach(l => l.classList.remove('active'));
-      e.target.classList.add('active');
-      showSection(e.target.getAttribute('data-section'));
-    });
-  });
-
-  langToggle.addEventListener('click', () => {
-    lang = (lang === 'fa') ? 'en' : 'fa';
-    langToggle.textContent = (lang === 'fa') ? 'EN' : 'FA';
-    showSection('home');
-    navLinks.forEach(l => l.classList.remove('active'));
-    navLinks[0].classList.add('active');
-  });
-</script>
-
-</body>
-</html>
+  <section id="blog" lang="fa" style="display:none;">
+    <h1>وبلاگ</h1>
+    <p>مطالب آموزشی، تحلیل‌های بازار و نکات معامله‌گری را در وبلاگ من دنبال کنید.</p
