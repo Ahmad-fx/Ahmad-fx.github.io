@@ -3,73 +3,92 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ahmad FX | سایت رسمی آموزش ترید</title>
+<title>Ahmad FX - خانه</title>
 <style>
+  /* Reset */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    margin: 0; padding: 0;
-    font-family: 'Tahoma', sans-serif;
-    background-color: #0d0d0d;
-    color: #ccc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0f21;
+    color: #c8d6e5;
     direction: rtl;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    color: #4fd1c5;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
   }
   header {
-    background-color: #121212;
+    background: #0f172a;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #1e90ff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #4fd1c5;
   }
   nav a {
-    color: #ccc;
-    text-decoration: none;
     margin: 0 15px;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
   }
   nav a:hover {
-    color: #1e90ff;
+    color: #63e6be;
   }
-  .lang-switcher {
-    cursor: pointer;
-    background: #1e90ff;
+  .lang-switch {
+    background: #4fd1c5;
+    color: #0f172a;
     border: none;
-    color: #0d0d0d;
-    font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 4px;
-    transition: background 0.3s;
-  }
-  .lang-switcher:hover {
-    background: #5599ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
   }
   main {
-    padding: 30px;
-    max-width: 900px;
+    flex-grow: 1;
+    padding: 60px 30px;
+    max-width: 1000px;
     margin: auto;
   }
-  section {
-    margin-bottom: 50px;
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4fd1c5;
   }
-  h1, h2, h3 {
-    color: #1e90ff;
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #c8d6e5;
   }
-  a.contact-link {
-    color: #5599ff;
-    text-decoration: none;
-    font-weight: bold;
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+    color: #6b7280;
+    background: #0f172a;
   }
-  a.contact-link:hover {
-    text-decoration: underline;
-    color: #1e90ff;
-  }
-  @media (max-width: 600px) {
+  /* Responsive */
+  @media (max-width: 768px) {
     header {
       flex-direction: column;
-      align-items: flex-start;
+      gap: 15px;
     }
     nav a {
-      margin: 10px 0;
+      margin: 0 10px;
+      font-size: 0.9rem;
+    }
+    main {
+      padding: 40px 20px;
     }
   }
 </style>
@@ -77,87 +96,80 @@
 <body>
 
 <header>
+  <div class="logo">Ahmad FX</div>
   <nav>
     <a href="#" data-section="home">خانه</a>
     <a href="#" data-section="about">درباره من</a>
     <a href="#" data-section="trade">تدریس ترید</a>
     <a href="#" data-section="contact">تماس با من</a>
   </nav>
-  <button class="lang-switcher" id="langToggle">EN</button>
+  <button class="lang-switch" id="langToggle">EN</button>
 </header>
 
 <main>
-  <section id="home" class="lang-fa">
+  <section id="home" lang="fa" style="display:block;">
     <h1>به سایت رسمی من خوش آمدید</h1>
-    <p>سلام! اینجا محلی است که می‌توانید دانش حرفه‌ای معامله‌گری را بیاموزید و به موفقیت مالی دست پیدا کنید.  
-    من احمد هستم، مدرس و تحلیل‌گر بازارهای مالی با تجربه چند ساله در فارکس و کریپتوکارنسی.</p>
+    <p>سلام! من احمد هستم، تحلیل‌گر بازارهای مالی با سال‌ها تجربه در فارکس و ارزهای دیجیتال.  
+    هدف من آموزش ساده، کاربردی و عملی ترید است تا شما هم بتوانید به موفقیت برسید.</p>
+  </section>
+  <section id="about" lang="fa" style="display:none;">
+    <h1>درباره من</h1>
+    <p>من احمد خسروی، معامله‌گر و مدرس بازارهای مالی با بیش از ۷ سال تجربه در تحلیل تکنیکال و فاندامنتال.  
+    تمرکز من روی آموزش استراتژی‌های کارآمد برای کسب سود مستمر است.  
+    معتقدم آموزش باید ساده، واضح و قابل اجرا باشد.</p>
+  </section>
+  <section id="trade" lang="fa" style="display:none;">
+    <h1>تدریس ترید</h1>
+    <p>دوره‌های من شامل آموزش مدیریت ریسک، روانشناسی بازار و استراتژی‌های حرفه‌ای برای معامله‌گری در بازارهای جهانی است.  
+    برای اطلاعات بیشتر و ثبت‌نام، با تلگرام زیر تماس بگیرید:</p>
+    <p><a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
+  </section>
+  <section id="contact" lang="fa" style="display:none;">
+    <h1>تماس با من</h1>
+    <p>ایمیل: <a href="mailto:ahmadkhesrawi52@gmail.com">ahmadkhesrawi52@gmail.com</a></p>
+    <p>تلگرام: <a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
   </section>
 
-  <section id="about" class="lang-fa" style="display:none;">
-    <h2>درباره من</h2>
-    <p>من احمد خسروی هستم، تحلیل‌گر بازارهای مالی و مدرس ترید با سابقه بیش از ۵ سال آموزش و معامله‌گری در بازارهای جهانی.  
-    هدف من آموزش کاربردی و موثر برای همه علاقه‌مندان است تا بتوانند با اطمینان و دانش وارد بازار شوند.</p>
-  </section>
-
-  <section id="trade" class="lang-fa" style="display:none;">
-    <h2>تدریس ترید</h2>
-    <p>دوره‌های ترید من شامل آموزش مفاهیم پایه، استراتژی‌های معاملاتی، مدیریت ریسک و روانشناسی معامله‌گر است.  
-    اگر به دنبال آموزش واقعی و کاربردی هستید، همین حالا با من تماس بگیرید:</p>
-    <p><a href="https://t.me/a_khesrawi" target="_blank" class="contact-link">t.me/a_khesrawi</a></p>
-  </section>
-
-  <section id="contact" class="lang-fa" style="display:none;">
-    <h2>تماس با من</h2>
-    <p>ایمیل: <a href="mailto:ahmadkhesrawi52@gmail.com" class="contact-link">ahmadkhesrawi52@gmail.com</a></p>
-    <p>تلگرام: <a href="https://t.me/a_khesrawi" target="_blank" class="contact-link">t.me/a_khesrawi</a></p>
-  </section>
-
-  <!-- English Version -->
-  <section id="home-en" class="lang-en" style="display:none;">
+  <!-- English Sections -->
+  <section id="home-en" lang="en" style="display:none;">
     <h1>Welcome to My Official Website</h1>
-    <p>Hello! This is the place to learn professional trading skills and achieve financial success.  
-    I'm Ahmad, a market analyst and trading instructor with years of experience in Forex and cryptocurrency.</p>
+    <p>Hello! I'm Ahmad, a financial market analyst with years of experience in Forex and cryptocurrencies.  
+    My goal is to provide simple, practical, and effective trading education so you can succeed.</p>
   </section>
-
-  <section id="about-en" class="lang-en" style="display:none;">
-    <h2>About Me</h2>
-    <p>I'm Ahmad Khesrawi, a financial market analyst and trading instructor with over 5 years of experience in global markets.  
-    My goal is to provide practical and effective education so everyone can trade confidently.</p>
+  <section id="about-en" lang="en" style="display:none;">
+    <h1>About Me</h1>
+    <p>I'm Ahmad Khesrawi, a trader and financial market instructor with over 7 years of experience in technical and fundamental analysis.  
+    My focus is teaching effective strategies for consistent profits.  
+    I believe education should be simple, clear, and actionable.</p>
   </section>
-
-  <section id="trade-en" class="lang-en" style="display:none;">
-    <h2>Trading Instruction</h2>
-    <p>My trading courses cover fundamentals, strategies, risk management, and trader psychology.  
-    If you seek real, practical education, contact me now:</p>
-    <p><a href="https://t.me/a_khesrawi" target="_blank" class="contact-link">t.me/a_khesrawi</a></p>
+  <section id="trade-en" lang="en" style="display:none;">
+    <h1>Trading Instruction</h1>
+    <p>My courses cover risk management, market psychology, and professional trading strategies for global markets.  
+    For more info and registration, contact me on Telegram:</p>
+    <p><a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
   </section>
-
-  <section id="contact-en" class="lang-en" style="display:none;">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:ahmadkhesrawi52@gmail.com" class="contact-link">ahmadkhesrawi52@gmail.com</a></p>
-    <p>Telegram: <a href="https://t.me/a_khesrawi" target="_blank" class="contact-link">t.me/a_khesrawi</a></p>
+  <section id="contact-en" lang="en" style="display:none;">
+    <h1>Contact Me</h1>
+    <p>Email: <a href="mailto:ahmadkhesrawi52@gmail.com">ahmadkhesrawi52@gmail.com</a></p>
+    <p>Telegram: <a href="https://t.me/a_khesrawi" target="_blank">t.me/a_khesrawi</a></p>
   </section>
 </main>
 
 <script>
-  const links = document.querySelectorAll('nav a');
+  const navLinks = document.querySelectorAll('nav a');
   const langToggle = document.getElementById('langToggle');
-  let currentLang = 'fa';
+  let lang = 'fa';
 
   function showSection(id) {
-    document.querySelectorAll('main section').forEach(sec => {
-      sec.style.display = 'none';
-    });
-    if (currentLang === 'fa') {
+    document.querySelectorAll('main section').forEach(s => s.style.display = 'none');
+    if(lang === 'fa') {
       document.getElementById(id).style.display = 'block';
     } else {
       document.getElementById(id + '-en').style.display = 'block';
     }
   }
 
-  showSection('home');
-
-  links.forEach(link => {
+  navLinks.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       showSection(e.target.getAttribute('data-section'));
@@ -165,8 +177,8 @@
   });
 
   langToggle.addEventListener('click', () => {
-    currentLang = (currentLang === 'fa') ? 'en' : 'fa';
-    langToggle.textContent = (currentLang === 'fa') ? 'EN' : 'FA';
+    lang = (lang === 'fa') ? 'en' : 'fa';
+    langToggle.textContent = (lang === 'fa') ? 'EN' : 'FA';
     showSection('home');
   });
 </script>
